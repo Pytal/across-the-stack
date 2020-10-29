@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+
+  pg:
+    image: postgres:13
+    env_file: .env.pg
+    restart: unless-stopped
+    volumes:
+      - type: volume
+        source: pg_data
+        target: /var/lib/postgresql/data
+      - type: bind
+        source: ./sample
+        target: /tmp
+
+  postgrest:
+    image: postgrest/postgrest:v7.0.1
+    env_file: .env.postgrest
+    restart: unless-stopped
+    depends_on:
+      - pg
+
+  caddy:
+    image: caddy:2
+    env_file: .env.caddy
+    restart: unless-stopped
+    depends_on:
+      - pg
+      - postgrest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - type: volume
+        source: caddy_data
+        target: /data
+      - type: volume
+        source: caddy_config
+        target: /config
+      - type: bind
+        source: ./Caddyfile
+        target: /etc/caddy/Caddyfile
+
+volumes:
+  pg_data:
+  caddy_data:
+  caddy_config:

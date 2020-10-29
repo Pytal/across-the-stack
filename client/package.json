@@ -1,0 +1,34 @@
+{
+  "name": "across-the-stack",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "env-cmd -e dev next dev --port 5000",
+    "build": "next build",
+    "env:prod": "dpl-env production"
+  },
+  "babel": {
+    "presets": [
+      "next/babel",
+      "linaria/babel"
+    ]
+  },
+  "dependencies": {
+    "got": "^11.8.0",
+    "ky": "^0.24.0",
+    "linaria": "^2.0.0",
+    "next": "9.4.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "recoil": "^0.0.13"
+  },
+  "devDependencies": {
+    "@pytal/next-css": "^1.0.1",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "deploy-env": "^1.1.4",
+    "env-cmd": "^10.1.0",
+    "next-compose-plugins": "^2.2.0",
+    "typescript": "^4.0.5",
+    "vercel": "^20.1.2"
+  }
+}
