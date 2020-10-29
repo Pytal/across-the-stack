@@ -1,4 +1,5 @@
 # Across the Stack
+Check it out at https://across-the-stack.vercel.app
 
 ## High-level Planning
 - [x] Spin up a Postgres Docker container
