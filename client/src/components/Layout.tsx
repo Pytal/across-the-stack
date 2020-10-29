@@ -43,7 +43,7 @@ export const Layout = ({ children }: Props) => {
 
       setFilms(data)
     })()
-  }, [Number(router.query.offset)])
+  }, [router.query])
 
 
   return (
