@@ -58,9 +58,11 @@ export const Form = () => {
     const data: Film = { title, description, release_year, length, rating }
     const text = await ky.post('/api/insert_film', { json: data }).text()
 
-    alert(`Successfully Added Film!`)
-    router.push({ pathname: router.pathname })
+    const offset = Number(router.query.offset)
+    if (offset) router.push({ pathname: router.pathname })
+    else router.reload()
   }
+
 
   return (
     <>
