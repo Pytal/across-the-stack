@@ -11,7 +11,7 @@
   - [x] Table view page
     - [x] Pagination
   - [x] Insert form page
-- [ ] Use CI/CD to deploy frontend to Vercel
+- [x] Use CI/CD to deploy frontend to Vercel
 
 
 ## API Examples
